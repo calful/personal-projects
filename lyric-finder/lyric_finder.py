@@ -12,11 +12,9 @@ print(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-# /html/body/div[2]/div[2]/div[2] 
+artist = soup.find('div', class_ = 'lyricsh').h2.text
 
-artist = soup.find('div' , class_ = 'lyricsh').h2.text
-
-title = soup.find('div' , class_ = 'col-xs-12 col-lg-8 text-center').find_all('div',class_= 'div-share')[1].text.split('"')[1]
+title = soup.find('div', class_ = 'col-xs-12 col-lg-8 text-center').find_all('div',class_= 'div-share')[1].text.split('"')[1]
 
 lyrics = soup.find("div", class_="col-xs-12 col-lg-8 text-center").find_all("div")[5].text
 
