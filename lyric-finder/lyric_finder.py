@@ -7,6 +7,9 @@ songTitle = "bagszn"
 URL = "https://www.azlyrics.com/lyrics/" + songArtist + "/" + songTitle + ".html"
 page = requests.get(URL)
 
+if page.status_code is not 200:
+    print("error")
+
 # testing URL
 print(URL)
 
