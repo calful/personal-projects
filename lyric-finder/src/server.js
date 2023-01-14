@@ -1,9 +1,19 @@
+const requests = require('request-promise');
+const BeautifulSoup = require('beautifulsoup4').default;
 const express = require("express");
 const path = require("path");
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//app.get("/", (req, res) => {
+//    res.send("Server is running!");
+//});
+
+app.get("/", (req, res) => {
+    res.redirect("/lyrics");
+});
 
 app.get("/lyrics/:artist/:title", async (req, res) => {
     const { artist, title } = req.params;
